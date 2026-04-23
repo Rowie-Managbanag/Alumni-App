@@ -13,7 +13,7 @@ interface Mentor {
 }
 
 export default function MentorshipHub(props: { onNavigate: (screen: string) => void; user?: any }) {
-  const [mentors, setMentors] = createSignal<Mentor[]>([
+  const mentorsList: Mentor[] = [
     {
       id: '1',
       name: 'Dr. Patricia Aguirre',
@@ -58,7 +58,7 @@ export default function MentorshipHub(props: { onNavigate: (screen: string) => v
       availability: 'Available today',
       image: 'MJ',
     },
-  ]);
+  ];
 
   const [selectedMentor, setSelectedMentor] = createSignal<string | null>(null);
   const [filterExpertise, setFilterExpertise] = createSignal<string>('All');
@@ -66,8 +66,8 @@ export default function MentorshipHub(props: { onNavigate: (screen: string) => v
   const allExpertise = ['All', 'Leadership', 'Entrepreneurship', 'Engineering', 'Product', 'Sales', 'Marketing'];
 
   const filteredMentors = () => {
-    if (filterExpertise() === 'All') return mentors();
-    return mentors().filter((m) => m.expertise.some((e) => e.includes(filterExpertise())));
+    if (filterExpertise() === 'All') return mentorsList;
+    return mentorsList.filter((m: Mentor) => m.expertise.some((e: string) => e.includes(filterExpertise())));
   };
 
   const requestMentorship = (mentorName: string) => {
@@ -93,7 +93,7 @@ export default function MentorshipHub(props: { onNavigate: (screen: string) => v
       <div style="padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <div style="background: white; border-radius: 8px; padding: 15px; text-align: center; border-left: 4px solid #2563eb;">
           <p style="margin: 0; font-size: 11px; color: #999; font-weight: 600;">AVAILABLE MENTORS</p>
-          <p style="margin: 8px 0 0 0; font-size: 28px; font-weight: bold; color: #2563eb;">{mentors().length}</p>
+          <p style="margin: 8px 0 0 0; font-size: 28px; font-weight: bold; color: #2563eb;">{mentorsList.length}</p>
         </div>
         <div style="background: white; border-radius: 8px; padding: 15px; text-align: center; border-left: 4px solid #10b981;">
           <p style="margin: 0; font-size: 11px; color: #999; font-weight: 600;">ACTIVE SESSIONS</p>

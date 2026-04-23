@@ -19,7 +19,7 @@ import AnalyticsReport from './components/AnalyticsReport';
 import InvitationBuilder from './components/InvitationBuilder';
 
 export default function App() {
-  const [user, setUser] = createSignal(null);
+  const [user, setUser] = createSignal<any>(null);
   const [email, setEmail] = createSignal('');
   const [password, setPassword] = createSignal('');
   const [error, setError] = createSignal('');
@@ -46,10 +46,10 @@ export default function App() {
     }
 
     if (email() === 'alumni@example.com' && password() === 'password123') {
-      setUser({ name: 'John', type: 'alumni' });
+      setUser({ id: '1', email: 'alumni@example.com', password: 'password123', name: 'John', surname: 'Alumni', type: 'alumni', isVerified: true });
       setCurrentScreen('dashboard');
     } else if (email() === 'admin@addu.edu.ph' && password() === 'admin123') {
-      setUser({ name: 'Admin', type: 'admin' });
+      setUser({ id: '2', email: 'admin@addu.edu.ph', password: 'admin123', name: 'Admin', surname: 'User', type: 'admin', isVerified: true });
       setCurrentScreen('admin-dashboard');
     } else {
       setError('Invalid credentials');
@@ -105,7 +105,7 @@ export default function App() {
         return;
       }
       // Success - register the user
-      setUser({ name: form.fullName, type: 'alumni', studentId: form.studentId });
+      setUser({ id: Date.now().toString(), email: form.email, password: form.password, name: form.fullName, surname: '', type: 'alumni', isVerified: false });
       setEmail(form.email);
       setCurrentScreen('dashboard');
       setRegisterStep(1);

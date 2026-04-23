@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { User, Event, Notification } from './storage';
+import type { User, Event, Notification } from './storage';
 
 export interface AppState {
   currentUser: User | null;

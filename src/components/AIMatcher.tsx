@@ -55,11 +55,8 @@ export default function AIMatcher(props: { onNavigate: (screen: string) => void;
     },
   ]);
 
-  const [interactionLog, setInteractionLog] = createSignal<{ id: string; action: string }[]>([]);
-
-  const connectWith = (id: string, name: string) => {
+  const connectWith = (name: string) => {
     alert(`Connection request sent to ${name}!`);
-    setInteractionLog((prev) => [...prev, { id, action: 'connected' }]);
   };
 
   const skip = (id: string) => {
@@ -165,7 +162,7 @@ export default function AIMatcher(props: { onNavigate: (screen: string) => void;
                   Not interested
                 </button>
                 <button
-                  onClick={() => connectWith(match.id, match.name)}
+                  onClick={() => connectWith(match.name)}
                   style="padding: 10px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px;"
                 >
                   Connect

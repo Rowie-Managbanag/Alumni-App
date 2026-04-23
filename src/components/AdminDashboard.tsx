@@ -1,5 +1,3 @@
-import { Show } from 'solid-js';
-
 export default function AdminDashboard(props: { user: any; onLogout: () => void; onNavigate: (screen: string) => void }) {
   return (
     <div style="min-height: 100vh; background: #f8f9fa; padding-bottom: 20px;">

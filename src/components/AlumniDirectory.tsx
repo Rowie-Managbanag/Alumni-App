@@ -1,4 +1,4 @@
-import { createSignal, For, Show } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 
 export default function AlumniDirectory(props: { onNavigate: (screen: string) => void }) {
   const [searchQuery, setSearchQuery] = createSignal('');
@@ -61,12 +61,6 @@ export default function AlumniDirectory(props: { onNavigate: (screen: string) =>
       const matchIndustry = !selectedIndustry() || selectedIndustry() === 'All Industries' || person.industry === selectedIndustry();
       return matchSearch && matchCourse && matchBatch && matchIndustry;
     });
-  };
-
-  const clearFilters = () => {
-    setSelectedCourse('');
-    setSelectedBatch('');
-    setSelectedIndustry('');
   };
 
   return (

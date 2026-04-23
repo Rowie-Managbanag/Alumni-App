@@ -64,7 +64,7 @@ export default function NotificationCenter(props: { onNavigate: (screen: string)
                   <div style="font-size: 20px;">📱</div>
                   Push Notifications
                 </label>
-                <input type="checkbox" defaultChecked style="cursor: pointer; width: 18px; height: 18px;" />
+                <input type="checkbox" checked style="cursor: pointer; width: 18px; height: 18px;" />
               </div>
               <p style="margin: 0; font-size: 11px; color: #666;">Instant alerts on your device</p>
             </div>
@@ -94,7 +94,7 @@ export default function NotificationCenter(props: { onNavigate: (screen: string)
                 {category.items.map((item) => (
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 6px 0;">
                     <label style="font-size: 12px; color: #666; cursor: pointer;">{item}</label>
-                    <input type="checkbox" defaultChecked style="cursor: pointer; width: 16px; height: 16px;" />
+                    <input type="checkbox" checked style="cursor: pointer; width: 16px; height: 16px;" />
                   </div>
                 ))}
               </div>

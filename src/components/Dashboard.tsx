@@ -1,8 +1,4 @@
-import { createSignal, Show } from 'solid-js';
-
 export default function Dashboard(props: { user: any; onLogout: () => void; onNavigate: (screen: string) => void }) {
-  const [showMoreEvents, setShowMoreEvents] = createSignal(false);
-
   const events = [
     { id: 1, title: 'Opening Night', image: '🎭', time: '', attendees: '👥👥👥' },
     { id: 2, title: 'Innovation Night', image: '💡', time: '', attendees: '👥👥👥' },
